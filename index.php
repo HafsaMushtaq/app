@@ -1,7 +1,8 @@
+<?php include "connection/connect.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
   
-<!-- Mirrored from demos.wpexpand.com/html/eElectronics/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:49 GMT -->
+<!-- Mirrored from demos.wpexpand.com/html/eElectronics/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:49 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,7 +42,7 @@
                         <ul>
                             <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
+                            <li><a href="cart.php"><i class="fa fa-user"></i> My Cart</a></li>
                             <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
                             <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
                         </ul>
@@ -80,13 +81,13 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="index.html">e<span>Spares</span></a></h1>
+                        <h1><a href="index.php">e<span>Spares</span></a></h1>
                     </div>
                 </div>
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="cart.php">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div>
                 </div>
             </div>
@@ -106,10 +107,10 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="active"><a href="index.php">Home</a></li>
                         <li><a href="shop.php">Shop page</a></li>
                         <li><a href="single-product.html">Single product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="cart.php">Cart</a></li>
                         <li><a href="checkout.html">Checkout</a></li>
                         <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
@@ -244,96 +245,26 @@
                 <div class="col-md-12">
                     <div class="latest-product">
                         <h2 class="section-title">Latest Products</h2>
-                        <div class="product-carousel">zz
-                            <div class="single-product">
+                        <div class="product-carousel">
+                            <?php
+                                    $query = mysqli_query($connect,"SELECT * FROM images LIMIT 6");
+
+                                    while($row = mysqli_fetch_assoc($query)){ ?>     <!-- while loop starts-->      
+                            <div class="single-product">             
                                 <div class="product-f-image">
-                                    <img src="img/products/p2.jpg" alt="">
+                                    <img src = "<?php echo $row['image_path'] ;?>" >
                                     <div class="product-hover">
                                         <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                         <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                     </div>
-                                </div>
-                                
-                                <h2><a href="single-product.html">Speed Cassette</a></h2>
-                                
-                                <div class="product-carousel-price">
-                                    <ins>$700.00</ins> <del>$800.00</del>
                                 </div> 
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="img/products/p3.jpg" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                                
-                                <h2><a href="single-product.html">Gloves</a></h2>
-                                <div class="product-carousel-price">
-                                    <ins>$899.00</ins> <del>$999.00</del>
-                                </div> 
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="img/products/p4.jpg" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                                
-                                <h2><a href="single-product.html">Road Bike Pedals</a></h2>
-
-                                <div class="product-carousel-price">
-                                    <ins>$400.00</ins> <del>$425.00</del>
-                                </div>                                 
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="img/products/p5.jpg" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                                
-                                <h2><a href="single-product.html">Rear Derailleur</a></h2>
-
-                                <div class="product-carousel-price">
-                                    <ins>$200.00</ins> <del>$225.00</del>
-                                </div>                            
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="img/products/p6.jpg" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                                
-                                <h2><a href="single-product.html">Race XC Crankset</a></h2>
-
-                                <div class="product-carousel-price">
-                                    <ins>$1200.00</ins> <del>$1355.00</del>
-                                </div>                                 
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="img/products/p7.jpg" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                                
-                                <h2><a href="single-product.html">Aero Handle Bars</a></h2>
-
-                                <div class="product-carousel-price">
-                                    <ins>$400.00</ins>
-                                </div>                            
-                            </div>
+                                    <div class="single-product">
+                                        <h2><a href="single-product.html"> <?php echo $row['product_name'] ?></a></h2>
+                                        <div class="product-carousel-price">
+                                             <ins><?php echo $row['discounted_price'] ?></ins> <del><?php echo $row['original_price'] ?></del>
+                                        </div>                           
+                                    </div> 
+                            </div>  <?php } ?>  
                         </div>
                     </div>
                 </div>
@@ -372,9 +303,14 @@
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Top Sellers</h2>
                         <a href="#" class="wid-view-more">View All</a>
+                        <?php
+                           $query = mysqli_query($connect,"SELECT * FROM images LIMIT 3");
+
+                            while($row = mysqli_fetch_assoc($query)){ ?>   
+                        
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/thumbs/p2-thumb.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Speed Cassette</a></h2>
+                            <a href="single-product.html"><img src="<?php echo $row['image_path']; ?>" height = "100" width = "90" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html"><?php echo $row['product_name']; ?></a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -383,46 +319,24 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
+                                <ins>$<?php echo $row['discounted_price']; ?></ins> <del>$<?php echo $row['original_price'] ?></del>
                             </div>                            
-                        </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/thumbs/p3-thumb.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Gloves</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/thumbs/p4-thumb.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Road Bike Pedals</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
+                        </div><?php }?> 
+                        
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Recently Viewed</h2>
                         <a href="#" class="wid-view-more">View All</a>
+                        <?php
+                           $query = mysqli_query($connect,"SELECT * FROM images LIMIT 3");
+
+                            while($row = mysqli_fetch_assoc($query)){ ?>   
+                        
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/thumbs/p5-thumb.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Rear Derailleur</a></h2>
+                            <a href="single-product.html"><img src="<?php echo $row['image_path']; ?>" height = "100" width = "90" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html"><?php echo $row['product_name']; ?></a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -431,46 +345,24 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
+                                <ins>$<?php echo $row['discounted_price']; ?></ins> <del>$<?php echo $row['original_price'] ?></del>
                             </div>                            
-                        </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/thumbs/p2-thumb.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Speed Cassette</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/thumbs/p3-thumb.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Gloves</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
+                        </div><?php }?>
+                        
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Top New</h2>
                         <a href="#" class="wid-view-more">View All</a>
+                        <?php
+                           $query = mysqli_query($connect,"SELECT * FROM images LIMIT 3");
+
+                            while($row = mysqli_fetch_assoc($query)){ ?>   
+                        
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/thumbs/p4-thumb.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Road Bike Pedals</a></h2>
+                            <a href="single-product.html"><img src="<?php echo $row['image_path']; ?>" height = "100" width = "90" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html"><?php echo $row['product_name']; ?></a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -479,37 +371,10 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
+                                <ins>$<?php echo $row['discounted_price']; ?></ins> <del>$<?php echo $row['original_price'] ?></del>
                             </div>                            
-                        </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/thumbs/p5-thumb.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Rear Derailleur</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.html"><img src="img/thumbs/p2-thumb.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Speed Cassette</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                            
-                        </div>
+                        </div><?php }?>
+                        
                     </div>
                 </div>
             </div>
@@ -614,5 +479,5 @@
     <script src="js/main.js"></script>
   </body>
 
-<!-- Mirrored from demos.wpexpand.com/html/eElectronics/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:55 GMT -->
+<!-- Mirrored from demos.wpexpand.com/html/eElectronics/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:55 GMT -->
 </html>

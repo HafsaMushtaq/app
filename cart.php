@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   
-<!-- Mirrored from demos.wpexpand.com/html/eElectronics/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:40 GMT -->
+<!-- Mirrored from demos.wpexpand.com/html/eElectronics/cart.php by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:40 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +32,12 @@
     <![endif]-->
   </head>
   <body>
-   
+
+ <?php
+    $name=$_POST["name"];
+        $price=$_POST["price"];
+        $qty=$_POST["qty"]; ?>
+     
     <div class="header-area">
         <div class="container">
             <div class="row">
@@ -41,7 +46,7 @@
                         <ul>
                             <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
+                            <li><a href="cart.php"><i class="fa fa-user"></i> My Cart</a></li>
                             <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
                             <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
                         </ul>
@@ -80,13 +85,13 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="index.html">e<span>Spares</span></a></h1>
+                        <h1><a href="index.php">e<span>Spares</span></a></h1>
                     </div>
                 </div>
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="cart.php">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div>
                 </div>
             </div>
@@ -106,10 +111,10 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="shop.php">Shop page</a></li>
                         <li><a href="single-product.html">Single product</a></li>
-                        <li class="active"><a href="cart.html">Cart</a></li>
+                        <li class="active"><a href="cart.php">Cart</a></li>
                         <li><a href="checkout.html">Checkout</a></li>
                         <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
@@ -198,10 +203,10 @@
                                     <thead>
                                         <tr>
                                             <th class="product-remove">&nbsp;</th>
-                                            <th class="product-thumbnail">&nbsp;</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-thumbnail" >&nbsp;</th>
+                                            <th class="product-name" id="name">Product</th>
+                                            <th class="product-price" id="price">Price</th>
+                                            <th class="product-quantity" id="qty">Quantity</th>
                                             <th class="product-subtotal">Total</th>
                                         </tr>
                                     </thead>
@@ -216,7 +221,7 @@
                                             </td>
 
                                             <td class="product-name">
-                                                <a href="single-product.html">Ship Your Idea</a> 
+                                                <a href="single-product.html"> <?php echo "$name" ?></a> 
                                             </td>
 
                                             <td class="product-price">
@@ -676,5 +681,5 @@
     <script src="js/main.js"></script>
   </body>
 
-<!-- Mirrored from demos.wpexpand.com/html/eElectronics/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:43 GMT -->
+<!-- Mirrored from demos.wpexpand.com/html/eElectronics/cart.php by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:43 GMT -->
 </html>

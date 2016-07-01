@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   
-<!-- Mirrored from demos.wpexpand.com/html/eElectronics/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:18 GMT -->
+<!-- Mirrored from demos.wpexpand.com/html/eElectronics/shop.php by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:18 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,41 +31,85 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<style>
-.show_more_main{
-    text-align: center;
+    <style>
+        ul#egmenu {  
+    background: #1abc9c; 
+    height: 30px;
+    width: 100%; 
 }
-.show_more {
-    background: none repeat scroll 0 0 #1abc9c;
-    border: medium none;
-    color: #fff;
-    padding: 6px 25px;display: inline-block;
-    text-align :center;
-}
-.show_more:hover {background-color: #222;color: #fff;text-decoration: none; cursor: pointer; }
 
-</style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-    $(document).on('click','.show_more',function(){
-        var ID = $(this).attr('id');
-        $('.show_more').hide();
-        $('.loding').show();
-        $.ajax({
-            type:'POST',
-            url:'ajax_more.php',
-            data:'id='+ID,
-            success:function(html){
-                $('#show_more_main'+ID).remove();
-                $('.list').append(html);
-            }
+ul#egmenu > li { 
+    float: left; 
+    position: relative;  
+}
+
+ul#egmenu ul {
+    background: #444; 
+    display: none; 
+    position: absolute;
+    left: 0; top: 100%;
+}
+
+ul#egmenu a { 
+    cursor: pointer; 
+    display: block; 
+    color: white; 
+    line-height: 30px; 
+    padding: 0 10px; 
+}
+
+ul#egmenu li { list-style: none; }
+
+ul#egmenu li:hover { background: #555;  }
+ul#egmenu li:hover ul { display: block;  }
+
+@media all and (max-width: 480px) {
+    ul#egmenu {  height: auto; }
+    ul#egmenu > li {  float: none; width: 100%; }
+    ul#egmenu a { line-height: 40px; }
+    ul#egmenu ul { position: relative; }
+}
+
+@media all and (min-width: 481px) {
+    ul#egmenu li:hover { background: #555;  }
+    ul#egmenu li:hover ul { display: block;  }
+}
+
+@media all and (max-width: 480px) {
+    ul#egmenu {  height: auto; }
+    ul#egmenu > li {  float: none; width: 100%; }
+    ul#egmenu a { line-height: 40px; }
+    ul#egmenu ul { position: relative; }
+
+    ul#egmenu li.tap { background: #555;  }
+    ul#egmenu li.tap ul { display: block;  }
+} 
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $(document).on('click','.show_more',function(){
+            var ID = $(this).attr('id');
+            $('.show_more').hide();
+            $('.loding').show();
+            $.ajax({
+                type:'POST',
+                url:'ajax_more.php',
+                data:'id='+ID,
+                success:function(html){
+                    $('#show_more_main'+ID).remove();
+                    $('.list').append(html);
+                }
+            });
+            
         });
-        
     });
-});
-</script>
 
+    $('.has-sub').click( function(e) {
+    e.preventDefault();
+    $(this).parent().toggleClass('tap');
+    }); 
+    </script>
   </head>
   <body>
    
@@ -77,7 +121,7 @@ $(document).ready(function(){
                         <ul>
                             <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
+                            <li><a href="cart.php"><i class="fa fa-user"></i> My Cart</a></li>
                             <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
                             <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
                         </ul>
@@ -116,14 +160,14 @@ $(document).ready(function(){
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="index.html">e<span>Spares</span></a></h1>
+                        <h1><a href="index.php">e<span>Spares</span></a></h1>
                     </div>
                 </div>
+                
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="cart.php">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -141,13 +185,20 @@ $(document).ready(function(){
                     </button>
                 </div> 
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
+                    <ul class="nav navbar-nav" id="egmenu" >
+                        <li><a href="index.php">Home</a></li>
                         <li class="active"><a href="shop.php">Shop page</a></li>
                         <li><a href="single-product.html">Single product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="cart.php">Cart</a></li>
                         <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="#">Category</a></li>
+                        <li><a href="#" class="has-sub">Category</a>
+                            <ul style="padding-left:0; z-index: 1; ">
+                              <li><a href="#">Computers</a></li>
+                              <li><a href="#">Phones</a></li>
+                              <li><a href="#">Tablets</a></li>
+                              <li><a href="#">Beepers</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#">Others</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
@@ -164,7 +215,6 @@ $(document).ready(function(){
                         <h2>Shop</h2>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -174,7 +224,7 @@ $(document).ready(function(){
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-            <div class="list">
+                <div class="list">
                 <?php 
                     $query = mysqli_query($connect, "SELECT * FROM images ORDER BY image_id ASC LIMIT 8");
             
@@ -188,9 +238,9 @@ $(document).ready(function(){
                                         <div class=\"product-upper\">
                                             <img src=".$row["image_path"]." alt=".$row["image_name"]."> 
                                         </div>
-                                            <h2><a href=\"#\">".$row["display_name"]."</a></h2>
+                                            <h2><a href=\"#\">".$row["product_name"]."</a></h2>
                                         <div class=\"product-carousel-price\">
-                                                <ins>".$row["price"]."</ins> <del>$999.00</del>
+                                                <ins>".$row["original_price"]."</ins> <del>$999.00</del>
                                         </div>  
                                             
                                         <div class=\"product-option-shop\">
@@ -200,14 +250,12 @@ $(document).ready(function(){
                                 </div>";
                         }?>
                        <div class="show_more_main" id="show_more_main<?php echo $tutorial_id; ?>">
-                            <span id="<?php echo $tutorial_id; ?>" class="show_more" title="Load more posts">Show more</span>
+                            <span id="<?php echo $tutorial_id; ?>" class="show_more" title="Load more posts">SHOW MORE</span>
                             <span class="loding" style="display: none;"><span class="loding_txt">Loading...</span></span>
                        </div>
-                 <?php   } ?>
+             <?php  } ?>
+                </div>
             </div>
-            </div>
-            
-         
         </div>
     </div>
 
@@ -307,5 +355,5 @@ $(document).ready(function(){
     <script src="js/main.js"></script>
   </body>
 
-<!-- Mirrored from demos.wpexpand.com/html/eElectronics/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:29 GMT -->
+<!-- Mirrored from demos.wpexpand.com/html/eElectronics/shop.php by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jun 2016 08:57:29 GMT -->
 </html>

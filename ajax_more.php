@@ -27,9 +27,9 @@ if($rowCount > 0){
                             <div class=\"product-upper\">
                                 <img src=".$row["image_path"]." alt=".$row["image_name"]."> 
                                 </div>
-                                <h2><a href=\"#\">".$row["display_name"]."</a></h2>
+                                <h2><a href=\"#\">".$row["product_name"]."</a></h2>
                                 <div class=\"product-carousel-price\">
-                                    <ins>".$row["price"]."</ins> <del>$999.00</del>
+                                    <ins>".$row["original_price"]."</ins> <del>$999.00</del>
                                 </div>  
                                 
                                 <div class=\"product-option-shop\">
